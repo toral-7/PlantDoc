@@ -1,70 +1,255 @@
-# Getting Started with Create React App
+# PlantDoc - Plant Nutrient Deficiency Diagnostic Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📋 Overview
 
-## Available Scripts
+**PlantDoc** is a web-based agricultural diagnostic tool that helps farmers and gardeners identify nutrient deficiencies in plants using two methods:
 
-In the project directory, you can run:
+1. **Photo Analysis** - Upload a leaf photo for AI-powered deficiency detection
+2. **Symptom Checklist** - Answer guided questions about plant symptoms for diagnosis
 
-### `npm start`
+The app covers **40+ plant types** and **12 nutrient elements** (macronutrients and micronutrients), providing evidence-based treatment recommendations including fertilizer types, dosages, application methods, and prevention tips.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Key Features
 
-### `npm test`
+- **Dual Diagnosis Methods**
+  - Photo-based analysis using color detection
+  - Symptom-based checklist with rule-based matching
+  
+- **Comprehensive Database**
+  - 40+ plant types (vegetables, fruits, crops, ornamentals, houseplants)
+  - 12 nutrient elements (N, P, K, Mg, Ca, S, Fe, Zn, Mn, B, Cu, Mo)
+  - Detailed treatment plans per nutrient
+  - Both synthetic and organic fertilizer options
+  
+- **Advanced Treatment Information**
+  - Multiple treatment options per deficiency
+  - Dosage instructions
+  - Application methods (foliar spray, soil drench, etc.)
+  - Recovery timelines
+  - Prevention tips
+  
+- **Severity Levels**
+  - Mild, Moderate, Severe classifications
+  - Specific recovery times for each level
+  - Action items based on severity
+  
+- **Professional UI**
+  - Clean, responsive design
+  - Mobile-friendly interface
+  - Intuitive navigation
+  - Color-coded severity indicators
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## 📱 How to Use
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Photo Analysis Path
+1. Click **"Photo Analysis"** on home page
+2. Select your plant type from dropdown
+3. Upload a clear photo of the affected leaf
+4. Click **"Analyze Photo"**
+5. View results with severity level and treatment plan
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Symptom Checklist Path
+1. Click **"Symptom Checklist"** on home page
+2. Select your plant type
+3. Check all visible symptoms
+4. Click **"Diagnose Plant"**
+5. View results with recommended treatments
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Results Screen
+- **Deficiency Name** - Which nutrient is deficient
+- **Severity Level** - Mild/Moderate/Severe
+- **Confidence Score** - Only for photo analysis (60-85%)
+- **Treatment Plan** - Fertilizer, dosage, frequency, method, recovery time
+- **Secondary Deficiency** - If multiple deficiencies detected
+- **Action Buttons** - Analyze another photo or use checklist again
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🌱 Nutrients Covered
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Primary Macronutrients (NPK)
+- **Nitrogen (N)** - Leaf growth, chlorophyll, protein synthesis
+- **Phosphorus (P)** - Root development, flowering, fruiting
+- **Potassium (K)** - Plant vigor, disease resistance, fruit quality
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Secondary Macronutrients
+- **Magnesium (Mg)** - Chlorophyll center, photosynthesis
+- **Calcium (Ca)** - Cell wall structure, root development
+- **Sulfur (S)** - Protein synthesis, enzyme function
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Micronutrients
+- **Iron (Fe)** - Chlorophyll production, respiration
+- **Zinc (Zn)** - Enzyme activity, growth hormone
+- **Manganese (Mn)** - Photosynthesis, enzyme function
+- **Boron (B)** - Cell wall formation, flowering
+- **Copper (Cu)** - Enzyme function, disease resistance
+- **Molybdenum (Mo)** - Nitrogen metabolism, enzyme function
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔧 Technology Stack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Frontend**: React 18
+- **Styling**: Inline CSS with professional design system
+- **Icons**: Lucide React
+- **Image Processing**: Canvas API (browser-based)
+- **State Management**: React Hooks (useState, useRef)
+- **Data**: JavaScript objects and arrays
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 💾 Data Structure
 
-### Analyzing the Bundle Size
+### Nutrient Database (`nutrients.js`)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Each nutrient object contains:
 
-### Making a Progressive Web App
+```javascript
+{
+  id: "nitrogen",
+  name: "Nitrogen",
+  symbol: "N",
+  color: "#FFEB3B",
+  importance: "...",
+  visualSymptoms: { ... },
+  symptoms: [ ... ],
+  severity: {
+    mild: { ... },
+    moderate: { ... },
+    severe: { ... }
+  },
+  treatments: {
+    fertilizer: [ ... ],
+    organic: [ ... ]
+  },
+  preventionTips: [ ... ]
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 📊 Photo Analysis Algorithm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. User uploads image of plant leaf
+2. Image resized to 200×200 pixels
+3. Color analysis examines RGB values:
+   - **Yellow pixels** (R>150, G>150, B<100) → Nitrogen deficiency
+   - **Brown pixels** (R>G>B) → Potassium deficiency
+   - **High red ratio** → Phosphorus deficiency
+   - **Low blue values** → Iron deficiency
+4. Percentage calculation determines confidence score
+5. Confidence mapped to severity (Mild/Moderate/Severe)
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## ✅ Features by Page
 
-### `npm run build` fails to minify
+### Home Page
+- Welcome screen with app description
+- Two method cards (Photo vs Checklist)
+- About section explaining the tool
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Photo Analysis Page
+- Plant type selector (40+ options)
+- Image upload with preview
+- Analyze button with loading state
+- Professional form layout
+
+### Symptom Checklist Page
+- Step-by-step guidance
+- Plant selector
+- Multi-select symptoms organized by nutrient
+- Counter showing selections
+- Diagnose button
+
+### Results Page
+- Gradient header with deficiency name
+- Severity badge (color-coded)
+- Confidence score (if from photo)
+- Structured treatment plan:
+  - Fertilizer type
+  - Dosage
+  - Application frequency
+  - Application method
+  - Recovery timeline
+- Secondary deficiency warning (if applicable)
+- Action buttons for next steps
+
+---
+
+## 🎨 Design Features
+
+- **Color Scheme**: Professional green & blue (agriculture-focused)
+- **Typography**: Proper font hierarchy and spacing
+- **Components**: Card-based layout with shadows and hover effects
+- **Responsive**: Mobile-friendly design
+- **Accessibility**: Clear labels and high contrast
+
+---
+
+## 📈 How It Works
+
+### Photo Path Logic
+```
+Upload Image → Analyze Colors → Match to Nutrient 
+→ Calculate Confidence → Assign Severity → Show Results
+```
+
+### Checklist Path Logic
+```
+Select Plant → Check Symptoms → Match Symptoms to Nutrients 
+→ Score Matches → Assign Severity → Show Results
+```
+
+---
+
+## 💡 Tips for Users
+
+### Best Practices for Photo Analysis
+- Use clear, well-lit photos
+- Focus on the affected leaf
+- Capture multiple leaves if possible
+- Take photos during daytime
+- Avoid shadows
+
+### Best Practices for Symptom Checklist
+- Be thorough in symptom selection
+- Check all visible symptoms
+- Select at least one symptom for accurate diagnosis
+- Use multiple symptoms for better accuracy
+
+---
+
+## 🚧 Future Enhancements
+
+- Multi-language support (Hindi, regional languages)
+- Save and history of diagnoses
+- Offline capability with service workers
+- Custom fertilizer cost calculator
+- Integration with soil testing databases
+- Camera capture for mobile
+- Share results feature
+- PDF report generation
+
+---
+
+## 📞 Support
+
+For issues or improvements:
+1. Check the symptom descriptions in the database
+2. Verify plant selection is correct
+3. Try the alternative diagnostic method
+4. Review treatment options for your specific plant
+
+---
+
+## 📄 License
+
+Community Service Project - Free to use for educational and agricultural purposes.
+
+---
+
+**PlantDoc** - Helping farmers and gardeners maintain healthy plants through science-based nutrient diagnosis.
