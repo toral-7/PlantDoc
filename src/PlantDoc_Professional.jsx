@@ -1,6 +1,6 @@
-import { nutrients, getNutrientById } from './nutrients';
+import { nutrients } from './nutrients';
 import React, { useState, useRef } from 'react';
-import { ArrowLeft, Upload, Leaf, FileText, CheckCircle2, AlertCircle, Zap } from 'lucide-react';
+import { ArrowLeft, Upload, Leaf, AlertCircle } from 'lucide-react';
 
 const PlantDoc = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -40,12 +40,12 @@ const PlantDoc = () => {
 
   const symptomsByPlant = {
     'tomato': {
-      'nitrogen': ['Yellowing of lower leaves', 'Stunted growth', 'Pale foliage', 'Slow plant development'],
-      'phosphorus': ['Dark purple leaves', 'Delayed flowering', 'Poor root growth', 'Reduced fruit set'],
-      'potassium': ['Brown leaf margins', 'Weak stems', 'Poor fruit development', 'Yellow chlorotic spots'],
-      'magnesium': ['Yellow interveinal chlorosis', 'Premature leaf drop', 'Weak stems'],
-      'calcium': ['Blossom end rot on fruits', 'Tip burn on leaves', 'Distorted new leaves'],
-      'sulfur': ['Uniform leaf yellowing', 'Stunted growth', 'Poor flower formation'],
+      'nitrogen': ['Yellowing of older/lower leaves first', 'Green veins with yellow leaf tissue (interveinal)', 'Stunted plant growth overall', 'Reduced fruit or flower production', 'Entire plant appears pale or light green', 'Thin, weak stems', 'Small leaves compared to normal'],
+      'phosphorus': ['Purple or red discoloration of leaves', 'Undersides of leaves more purple than tops', 'Delayed flowering or few flowers', 'Poor root development', 'Small, poor quality fruits or seeds', 'Dark green to purple overall plant color'],
+      'potassium': ['Brown or scorched leaf margins/edges', 'Weak, soft stems - plant wilts easily', 'Poor fruit or flower quality', 'Older leaves affected first', 'Reduced disease resistance', 'Small leaves despite adequate space'],
+      'magnesium': ['Interveinal yellowing (yellow between green veins)', 'Net or checkerboard pattern on leaves', 'Leaf curl or rolling', 'Premature leaf drop', 'Weak or sparse new growth'],
+      'calcium': ['Young leaf tip burn or scorch', 'Twisted, distorted new leaves', 'Weak root development', 'Blossom end rot on fruits (dark sunken areas)', 'Small or deformed fruits'],
+      'sulfur': ['Uniform yellowing starting on young leaves', 'Entire plant appears pale yellow or pale green', 'Stunted new growth', 'Delayed flowering or small flowers', 'Small leaves overall'],
       'iron': ['Yellow interveinal chlorosis', 'Green leaf veins', 'Young leaves affected first'],
       'zinc': ['Small leaves', 'Mottled appearance', 'Poor fruit quality'],
       'manganese': ['Interveinal chlorosis', 'Gray spot lesions', 'Distorted leaves'],
@@ -118,14 +118,10 @@ const PlantDoc = () => {
         const imageData = ctx.getImageData(0, 0, 200, 200);
         const data = imageData.data;
         
-        let redTotal = 0, greenTotal = 0, blueTotal = 0;
         let yellowTotal = 0, brownTotal = 0;
         
         for (let i = 0; i < data.length; i += 4) {
           const r = data[i], g = data[i + 1], b = data[i + 2];
-          redTotal += r;
-          greenTotal += g;
-          blueTotal += b;
           if (r > 150 && g > 150 && b < 100) yellowTotal++;
           if (r > g && g > b) brownTotal++;
         }
