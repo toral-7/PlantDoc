@@ -1,165 +1,106 @@
 /* PlantDoc Mobile Responsive Styles */
 
-/* ============================================
-   GLOBAL STYLES & RESET
-   ============================================ */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Source Sans Pro',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: #f5f7fa;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f5f7fa;
 }
-
-/* ============================================
-   BUTTON STYLES
-   ============================================ */
 
 button {
   font-family: inherit;
   transition: all 0.2s ease;
-  min-height: 44px; /* Mobile touch-friendly size */
+  min-height: 44px;
   cursor: pointer;
 }
 
-button:active {
-  transform: scale(0.98);
-}
-
-/* ============================================
-   INPUT & SELECT STYLES
-   ============================================ */
-
 select, input {
   font-family: inherit;
-  font-size: 16px; /* Prevents zoom on iOS */
-  min-height: 44px; /* Mobile touch-friendly */
+  font-size: 16px !important;
+  min-height: 44px;
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #cbd5e0;
   width: 100%;
 }
 
-select:focus, input:focus {
-  outline: none;
-  border-color: #22863a;
-  box-shadow: 0 0 0 3px rgba(34, 134, 58, 0.1);
-}
-
 /* ============================================
-   DESKTOP STYLES (1024px+)
-   ============================================ */
-
-@media (min-width: 1024px) {
-  .content-wrapper {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-  }
-
-  .card {
-    padding: 2.5rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-}
-
-/* ============================================
-   TABLET STYLES (768px - 1023px)
-   ============================================ */
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .content-wrapper {
-    max-width: 100%;
-    padding: 0 1rem;
-  }
-
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .card {
-    padding: 2rem;
-  }
-
-  h1 {
-    font-size: 1.75rem;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-  }
-
-  p {
-    font-size: 0.95rem;
-  }
-}
-
-/* ============================================
-   MOBILE STYLES (Under 768px) - IMPORTANT!
+   MOBILE STYLES (Under 768px)
    ============================================ */
 
 @media (max-width: 767px) {
-  /* Force grid to stack vertically */
-  div[style*="display: grid"][style*="gridTemplateColumns: 1fr 1fr"] {
+  /* Force single column layout */
+  div[style*="gridTemplateColumns: 1fr 1fr"] {
     display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 1rem !important;
-    max-width: 100% !important;
   }
 
-  /* Stack all grids */
-  div[style*="gridTemplateColumns"] {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-  }
-
-  /* Adjust padding */
-  div[style*="padding: 2"] {
-    padding: 1.5rem !important;
-  }
-
-  /* Full width containers */
+  /* Main containers */
   div[style*="maxWidth: 600px"],
   div[style*="maxWidth: 700px"],
   div[style*="maxWidth: 1000px"] {
     max-width: 100% !important;
     width: 100% !important;
-    margin: 0 auto !important;
     padding: 0 1rem !important;
+    margin: 0 auto !important;
   }
 
-  /* Full width buttons */
+  /* Home page container */
+  div[style*="maxWidth: 1000px"][style*="margin: 3rem auto"] {
+    padding: 1rem !important;
+    margin: 1rem auto !important;
+  }
+
+  /* About/Info boxes */
+  div[style*="background: rgba(255, 255, 255"],
+  div[style*="borderLeft: 4px solid"],
+  div[style*="borderRadius: 8px"] {
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    overflow: visible !important;
+    word-wrap: break-word !important;
+    white-space: normal !important;
+  }
+
+  /* All paragraphs */
+  p {
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  h2 {
+    font-size: 1.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Buttons - Full width */
   button {
     width: 100% !important;
     min-height: 48px !important;
@@ -168,319 +109,104 @@ select:focus, input:focus {
     margin-bottom: 0.5rem !important;
   }
 
-  /* Full width inputs */
+  /* Inputs */
   select {
     width: 100% !important;
-    min-height: 44px !important;
     font-size: 16px !important;
-  }
-
-  /* Text sizing for mobile */
-  h1 {
-    font-size: 1.5rem !important;
-    line-height: 1.3 !important;
-  }
-
-  h2 {
-    font-size: 1.25rem !important;
-  }
-
-  p {
-    font-size: 0.9rem !important;
-  }
-
-  /* Images responsive */
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Remove hover transforms on mobile */
-  button:hover {
-    transform: none !important;
-  }
-
-  /* Scrollable containers */
-  div[style*="maxHeight: 500px"],
-  div[style*="maxHeight: 396px"] {
-    max-height: 400px !important;
-    overflow-y: auto !important;
-  }
-
-  /* Flex wrapping */
-  div[style*="display: flex"] {
-    flex-wrap: wrap !important;
-  }
-
-  /* Canvas hidden */
-  canvas {
-    display: none !important;
-  }
-}
-  /* Buttons - Full Width on Mobile */
-  button {
-    width: 100%;
-    min-height: 48px;
-    font-size: 1rem;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  /* Inputs & Selects */
-  select {
-    width: 100%;
-    min-height: 44px;
-    font-size: 16px;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  /* Forms - Stack vertically */
-  form,
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-
-  label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    display: block;
+    padding: 0.75rem !important;
+    margin-bottom: 1rem !important;
   }
 
   /* Images */
   img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
   }
 
-  /* Remove hover effects on mobile (they don't work well) */
+  /* Remove hover transforms */
   button:hover {
-    transform: none;
+    transform: none !important;
   }
 
-  /* Header adjustments */
-  header {
-    padding: 1.5rem 0;
+  /* Scrollable areas */
+  div[style*="maxHeight"] {
+    max-height: auto !important;
+    overflow-y: auto !important;
   }
 
-  header h1 {
-    font-size: 1.5rem;
+  /* Card spacing */
+  div[style*="padding: 2rem"],
+  div[style*="padding: 2.5rem"] {
+    padding: 1.5rem !important;
   }
 
-  header p {
-    font-size: 0.85rem;
+  /* Ensure text doesn't overflow */
+  div {
+    overflow: visible !important;
   }
 
-  /* Lists */
-  ul, ol {
-    padding-left: 1.25rem;
-    margin-bottom: 1rem;
-  }
-
-  li {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  /* Checkboxes & Radio - Larger on mobile */
-  input[type="checkbox"],
-  input[type="radio"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    accent-color: #22863a;
-  }
-
-  /* Scrollable containers */
-  .scrollable {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  /* Remove fixed widths */
+  div[style*="width: 200px"] {
+    width: 100% !important;
   }
 
   /* Flex containers */
-  .flex-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+  div[style*="display: flex"] {
+    flex-direction: column !important;
   }
 
+  /* Fix info boxes text */
+  div[style*="borderLeft: 4px"] {
+    padding: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  div[style*="borderLeft: 4px"] p {
+    margin: 0 !important;
+    color: #4a5568 !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  div[style*="borderLeft: 4px"] h3 {
+    margin-bottom: 0.75rem !important;
+  }
+}
 
 /* ============================================
-   SMALL MOBILE (Under 480px)
+   TABLET STYLES (768px - 1023px)
    ============================================ */
 
-@media (max-width: 479px) {
-  body {
-    font-size: 14px;
+@media (min-width: 768px) and (max-width: 1023px) {
+  div[style*="gridTemplateColumns: 1fr 1fr"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
   }
 
-  .content-wrapper {
-    padding: 0 0.75rem;
+  div[style*="maxWidth: 600px"],
+  div[style*="maxWidth: 700px"],
+  div[style*="maxWidth: 1000px"] {
+    max-width: 100% !important;
+    padding: 0 1rem !important;
   }
 
   h1 {
-    font-size: 1.25rem;
+    font-size: 1.75rem !important;
   }
 
-  h2 {
-    font-size: 1.1rem;
-  }
-
-  .card {
-    padding: 1rem;
-  }
-
-  button {
-    padding: 0.75rem;
-    min-height: 44px;
-    font-size: 0.95rem;
-  }
-
-  select {
-    font-size: 16px;
-    min-height: 44px;
-  }
-
-  /* Reduce margins for compact layout */
-  .card {
-    margin-bottom: 0.75rem;
-  }
-
-  /* Adjust grid gaps */
-  .grid-2 {
-    gap: 0.75rem;
-  }
-
-  /* Text sizes */
   p {
-    font-size: 0.85rem;
+    font-size: 0.95rem !important;
   }
 }
 
 /* ============================================
-   LANDSCAPE MODE (Mobile)
+   DESKTOP STYLES (1024px+)
    ============================================ */
 
-@media (max-height: 600px) and (orientation: landscape) {
-  body {
-    padding: 0.5rem;
-  }
-
-  .card {
-    padding: 1rem;
-  }
-
-  h1 {
-    margin-bottom: 0.5rem;
-  }
-
-  button {
-    padding: 0.5rem;
-    min-height: 40px;
-  }
-}
-
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
-
-.hidden-mobile {
-  display: none;
-}
-
-.hidden-desktop {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .hidden-mobile {
-    display: block;
-  }
-
-  .hidden-desktop {
-    display: none;
-  }
-}
-
-/* ============================================
-   SCROLLBAR STYLING (Optional)
-   ============================================ */
-
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f5f7fa;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e0;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #a0aec0;
-}
-
-/* ============================================
-   ANIMATION - Smooth transitions
-   ============================================ */
-
-@media (prefers-reduced-motion: no-preference) {
-  * {
-    scroll-behavior: smooth;
-  }
-
-  button,
-  a {
-    transition: all 0.2s ease;
-  }
-}
-
-/* ============================================
-   ACCESSIBILITY
-   ============================================ */
-
-:focus-visible {
-  outline: 2px solid #22863a;
-  outline-offset: 2px;
-}
-
-/* High contrast mode */
-@media (prefers-contrast: more) {
-  body {
-    color: #000;
-    background: #fff;
-  }
-
-  button {
-    border: 2px solid currentColor;
-  }
-}
-
-/* Dark mode support (optional) */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #1a1a2e;
-    color: #e0e0e0;
-  }
-
-  .card {
-    background: #2a2a3e;
-    border-color: #3a3a4e;
-  }
-
-  input,
-  select {
-    background: #2a2a3e;
-    color: #e0e0e0;
-    border-color: #3a3a4e;
+@media (min-width: 1024px) {
+  div[style*="gridTemplateColumns: 1fr 1fr"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
   }
 }
