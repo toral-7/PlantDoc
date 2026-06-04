@@ -269,7 +269,7 @@ const PlantDoc = () => {
 
         {/* Main Content */}
         <div style={{ maxWidth: '1000px', margin: 'auto', padding: '0 1.5rem' }}>
-          <p style={{ textAlign: 'center', color: '#4a5568', fontSize: '1rem', marginBottom: '3rem' }}>
+          <p style={{ textAlign: 'center', color: '#4a5568', fontSize: '1rem', marginBottom: '3rem', marginTop: '2rem' }}>
             Choose your diagnostic method to identify plant nutrient deficiencies
           </p>
 
