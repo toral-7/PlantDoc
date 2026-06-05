@@ -578,21 +578,29 @@ const PlantDoc = () => {
                               key={idx}
                               style={{
                                 display: 'flex',
-                                alignItems: 'center',
+                                flexDirection: 'row',
+                                alignItems: 'flex-start',
                                 padding: '0.75rem',
                                 background: selectedSymptoms.includes(symptom) ? '#f0fff4' : '#fafbfc',
                                 borderRadius: '6px',
                                 cursor: 'pointer',
-                                transition: 'all 0.2s'
+                                transition: 'all 0.2s',
+                                gap: '0.75rem'
                               }}
                             >
                               <input
                                 type="checkbox"
                                 checked={selectedSymptoms.includes(symptom)}
                                 onChange={() => toggleSymptom(symptom)}
-                                style={{ marginRight: '0.75rem', cursor: 'pointer' }}
+                                style={{
+                                  width: '20px',
+                                  height: '20px',
+                                  minWidth: '20px',
+                                  marginTop: '2px',
+                                  cursor: 'pointer'
+                                }}
                               />
-                              <span style={{ fontSize: '0.95rem', color: '#2d3748' }}>{symptom}</span>
+                              <span style={{ fontSize: '0.95rem', color: '#2d3748', wordWrap: 'break-word' }}>{symptom}</span>
                             </label>
                           ))}
                         </div>
