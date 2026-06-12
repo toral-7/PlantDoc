@@ -259,13 +259,30 @@ const PlantDoc = () => {
     return (
       <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' }}>
         {/* Header */}
-        <div style={{ background: '#1a472a', color: 'white', padding: '2rem 0', textAlign: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
-            <Leaf size={32} />
-            <h1 style={{ margin: 0, fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.5px' }}>PlantDoc</h1>
+      <div style={{ background: '#1a472a', color: 'white', padding: '1.5rem', textAlign: 'left' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', justifyContent: 'space-between', maxWidth: '1200px', margin: '0 auto' }}>
+          
+          {/* KKVP Logo - LEFT SIDE */}
+          <img 
+            src={`${process.env.PUBLIC_URL}/kkvp-logo.png`}
+            alt="KKVP Logo"
+            style={{ width: '60px', height: '60px', objectFit: 'contain', flexShrink: 0 }}
+          />
+          
+          {/* PlantDoc Title - CENTER */}
+          <div style={{ flex: 1, textAlign: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+              <Leaf size={32} />
+              <h1 style={{ margin: 0, fontSize: '2rem', fontWeight: '700', letterSpacing: '-0.5px' }}>PlantDoc</h1>
+            </div>
+            <p style={{ margin: 0, fontSize: '0.95rem', opacity: '0.9', fontWeight: '400' }}>Nutrient Deficiency Diagnostic Tool</p>
           </div>
-          <p style={{ margin: 0, fontSize: '0.95rem', opacity: '0.9', fontWeight: '400' }}>Nutrient Deficiency Diagnostic Tool</p>
+          
+          {/* Empty space - RIGHT SIDE (for balance) */}
+          <div style={{ width: '60px', flexShrink: 0 }}></div>
+          
         </div>
+      </div>
 
         {/* Main Content */}
         <div style={{ maxWidth: '1000px', margin: 'auto', padding: '0 1.5rem' }}>
