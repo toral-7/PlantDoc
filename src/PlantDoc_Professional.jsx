@@ -407,7 +407,7 @@ const PlantDoc = () => {
   // === PHOTO ANALYSIS PAGE ===
   if (currentPage === 'photo') {
     return (
-      <div style={{ minHeight: '100vh', background: '#ccffd8', padding: '2rem 1.5rem' }}>
+      <div style={{ minHeight: '100vh', background: 'linear-gradient(to top, #e7f9ef, #ccffd8)', padding: '2rem 1.5rem' }}>
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
           {/* Back Button */}
           <button
@@ -522,7 +522,7 @@ const PlantDoc = () => {
     const currentSymptoms = symptomsByPlant[selectedPlant] || symptomsByPlant['tomato'];
 
     return (
-      <div style={{ minHeight: '100vh', background: '#c3e1ff', padding: '2rem 1.5rem' }}>
+      <div style={{ minHeight: '100vh', background: 'linear-gradient(to top, #e7f9ef, #c3e1ff)', padding: '2rem 1.5rem' }}>
         <div style={{ maxWidth: '700px', margin: '0 auto' }}>
           {/* Back Button */}
           <button
@@ -680,7 +680,7 @@ const PlantDoc = () => {
     const color = severityColors[results.severity];
 
     return (
-      <div style={{ minHeight: '100vh', background: '#ffe1e0', padding: '2rem 1.5rem' }}>
+      <div style={{ minHeight: '100vh', background: 'linear-gradient(to top, #e7f9ef, #ffe1e0)', padding: '2rem 1.5rem' }}>
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
           {/* Back Button */}
           <button
